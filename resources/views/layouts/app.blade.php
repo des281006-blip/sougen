@@ -30,15 +30,23 @@
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}" href="{{ route('gallery') }}">Galeri</a></li>
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}" href="{{ route('news.index') }}">Berita</a></li>
         <li class="nav-item"><a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Kontak</a></li>
-        @if (Route::has('login'))
-          <li class="nav-item ms-lg-2">
-            @auth
-              <span class="nav-link">Halo, {{ auth()->user()->name }}</span>
+
+        <li class="nav-item ms-lg-2 d-flex gap-2 align-items-center py-2 py-lg-0">
+          @auth
+            @if (auth()->user()->isAdmin())
+              <a class="btn btn-outline-light btn-sm" href="{{ route('admin.dashboard') }}">Dashboard</a>
             @else
-              <a class="btn btn-gold btn-sm" href="{{ route('login') }}">Masuk</a>
-            @endauth
-          </li>
-        @endif
+              <span class="nav-link py-0">Halo, {{ auth()->user()->name }}</span>
+            @endif
+            <form method="POST" action="{{ route('logout') }}" class="m-0">
+              @csrf
+              <button class="btn btn-gold btn-sm">Keluar</button>
+            </form>
+          @else
+            <a class="btn btn-outline-light btn-sm" href="{{ route('register') }}">Daftar</a>
+            <a class="btn btn-gold btn-sm" href="{{ route('login') }}">Masuk</a>
+          @endauth
+        </li>
       </ul>
     </div>
   </div>
