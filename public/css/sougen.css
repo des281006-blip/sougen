@@ -1,0 +1,79 @@
+:root {
+  --sg-navy: #1a1440;
+  --sg-navy-dark: #120d2e;
+  --sg-teal: #0e7c86;
+  --sg-cyan: #19b5c0;
+  --sg-gold: #f5c542;
+  --sg-maroon: #8b1e3f;
+  --sg-pink: #f4a6c0;
+  --sg-white: #ffffff;
+}
+
+body {
+  background: var(--sg-navy);
+  color: var(--sg-white);
+  padding-bottom: 96px; /* ruang untuk Quick Feature Dock */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a { color: var(--sg-cyan); }
+a:hover { color: var(--sg-pink); }
+.text-muted { color: #cfc9ee !important; }
+.sg-gold { color: var(--sg-gold); }
+.sg-pink { color: var(--sg-pink); }
+
+/* Navbar */
+.sg-nav { background: var(--sg-navy-dark); border-bottom: 2px solid var(--sg-maroon); }
+.sg-nav .nav-link { color: #e9e5ff; }
+.sg-nav .nav-link:hover, .sg-nav .nav-link.active { color: var(--sg-gold); }
+.sg-brand { color: var(--sg-gold) !important; font-weight: 700; letter-spacing: .3px; }
+
+/* Tombol */
+.btn-gold { background: var(--sg-gold); color: var(--sg-navy-dark); font-weight: 600; border: 0; }
+.btn-gold:hover, .btn-gold:focus { background: #ffd966; color: var(--sg-navy-dark); }
+.btn-gold.disabled, .btn-gold:disabled { background: #a89050; color: #2b2450; }
+
+/* Hero */
+.sg-hero {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(244,166,192,.28), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(139,30,63,.45), transparent 45%),
+    linear-gradient(160deg, var(--sg-navy-dark), var(--sg-navy));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.sg-eyebrow { color: var(--sg-pink); text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; font-weight: 600; }
+
+/* Kartu & panel */
+.sg-card { background: var(--sg-teal); color: #fff; border: 0; border-radius: 14px; overflow: hidden; }
+.sg-card .card-title { color: #fff; }
+.sg-panel { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 24px; }
+.sg-poster { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.sg-poster-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--sg-maroon), var(--sg-navy-dark));
+  font-size: 3rem; color: var(--sg-pink);
+}
+.sg-badge-free { background: var(--sg-cyan); color: var(--sg-navy-dark); }
+.sg-badge-paid { background: var(--sg-gold); color: var(--sg-navy-dark); }
+.sg-section-title { border-left: 4px solid var(--sg-gold); padding-left: 12px; }
+
+/* Tabel gelap */
+.sg-table { --bs-table-bg: transparent; --bs-table-color: #fff; --bs-table-border-color: rgba(255,255,255,.15); }
+
+/* Footer */
+.sg-footer { background: var(--sg-navy-dark); border-top: 2px solid var(--sg-maroon); }
+
+/* Quick Feature Dock */
+.sg-dock {
+  position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+  z-index: 1030; display: flex; gap: 4px; padding: 8px 10px;
+  background: rgba(18,13,46,.96); border: 1px solid rgba(245,197,66,.5);
+  border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.45);
+  width: calc(100% - 24px); max-width: 460px;
+}
+.sg-dock a {
+  flex: 1; text-align: center; text-decoration: none; color: #fff;
+  font-size: .72rem; padding: 6px 4px; border-radius: 12px; line-height: 1.2;
+}
+.sg-dock a i { display: block; font-size: 1.35rem; color: var(--sg-gold); }
+.sg-dock a:hover { background: rgba(255,255,255,.1); color: var(--sg-gold); }
